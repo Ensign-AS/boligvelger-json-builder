@@ -1,0 +1,28 @@
+@layer settings {
+  :root,
+  ::backdrop {
+    color-scheme: light dark;
+
+    --color-100: #f7fafc;
+    --color-200: #dbe1e7;
+    --color-300: #b7c1cb;
+    --color-400: #8a9bad;
+    --color-500: #5e748b;
+    --color-600: #435a71;
+    --color-700: #2c3e50;
+    --color-800: #1d2a36;
+    --color-900: #10181f;
+
+    --color-main: light-dark(var(--color-800), var(--color-200));
+    --color-accent: light-dark(var(--color-200), var(--color-700));
+    --color-bg: light-dark(var(--color-100), var(--color-800));
+
+    --color-backdrop: light-dark(var(--color-800), var(--color-200));
+    --color-shadow: light-dark(
+      rgba(51, 60, 69, 0.35),
+      rgba(220, 224, 220, 0.35)
+    );
+
+    --transform-general: all ease-out 200ms;
+  }
+}

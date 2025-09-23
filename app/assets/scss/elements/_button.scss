@@ -1,0 +1,15 @@
+@layer elements {
+  button {
+    font-size: inherit;
+    padding: 0.5em;
+    background: transparent;
+    border: solid currentColor 1px;
+    border-radius: 5px;
+    transition: var(--transform-general);
+
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.15;
+    }
+  }
+}

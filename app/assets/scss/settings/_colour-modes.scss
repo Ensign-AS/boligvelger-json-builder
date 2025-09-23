@@ -1,0 +1,69 @@
+@layer settings {
+  .light-mode {
+    color-scheme: light;
+  }
+
+  .dark-mode {
+    color-scheme: dark;
+  }
+
+  .sepia-mode {
+    --color-100: #fdf6e3;
+    --color-200: #f5e6c8;
+    --color-300: #e7d3a9;
+    --color-400: #d0b887;
+    --color-500: #b89c6a;
+    --color-600: #9c8052;
+    --color-700: #7f6640;
+    --color-800: #5d4c30;
+    --color-900: #3e3421;
+  }
+
+  .pink-mode {
+    --color-100: #fff5f7;
+    --color-200: #fed7e2;
+    --color-300: #fbb6ce;
+    --color-400: #f687b3;
+    --color-500: #ed64a6;
+    --color-600: #d53f8c;
+    --color-700: #b83280;
+    --color-800: #97266d;
+    --color-900: #702459;
+  }
+
+  .green-mode {
+    --color-100: #f0fdf4;
+    --color-200: #c6f6d5;
+    --color-300: #9ae6b4;
+    --color-400: #68d391;
+    --color-500: #48bb78;
+    --color-600: #38a169;
+    --color-700: #2f855a;
+    --color-800: #276749;
+    --color-900: #22543d;
+  }
+
+  .purple-mode {
+    --color-100: #faf5ff;
+    --color-200: #e9d8fd;
+    --color-300: #d6bcfa;
+    --color-400: #b794f4;
+    --color-500: #9f7aea;
+    --color-600: #805ad5;
+    --color-700: #6b46c1;
+    --color-800: #553c9a;
+    --color-900: #44337a;
+  }
+
+  .yellow-mode {
+    --color-100: #fffbeb;
+    --color-200: #fef3c7;
+    --color-300: #fde68a;
+    --color-400: #fcd34d;
+    --color-500: #fbbf24;
+    --color-600: #f59e0b;
+    --color-700: #d97706;
+    --color-800: #b45309;
+    --color-900: #78350f;
+  }
+}

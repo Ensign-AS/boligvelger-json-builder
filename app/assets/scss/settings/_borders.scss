@@ -1,0 +1,7 @@
+@layer settings {
+  :root,
+  ::backdrop {
+    --border-size: 1px;
+    --border-radius: 5px;
+  }
+}

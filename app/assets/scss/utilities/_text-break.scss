@@ -1,0 +1,6 @@
+@layer utilities {
+  .u-text-break {
+    word-wrap: break-word;
+    max-width: calc(100vw - 5em);
+  }
+}

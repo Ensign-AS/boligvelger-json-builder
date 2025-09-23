@@ -1,0 +1,21 @@
+@layer components {
+  .c-text-input {
+    &__item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5em;
+      text-align: left;
+    }
+
+    &__input {
+      width: 100%;
+    }
+
+    &__label {
+      cursor: pointer;
+      border-radius: var(--border-radius);
+      transition: var(--transform-general);
+      margin-bottom: 0.5em;
+    }
+  }
+}

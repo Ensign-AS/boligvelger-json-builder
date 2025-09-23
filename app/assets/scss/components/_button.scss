@@ -1,0 +1,79 @@
+@layer components {
+  .c-btn {
+    display: inline-block;
+    font-family: inherit;
+    border: solid var(--color-main) var(--border-size);
+    border-radius: var(--border-radius);
+    color: var(--color-main);
+    background-color: var(--color-accent);
+    padding: 0.75em 1.25em;
+    margin: 0;
+    font-size: 1em;
+    text-decoration: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all ease-out 150ms;
+    }
+
+    &:hover:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      @media (pointer: fine) {
+        cursor: pointer;
+        background-color: var(--color-main);
+        color: var(--color-accent);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+
+        svg {
+          fill: currentColor;
+        }
+      }
+    }
+
+    &.c-btn:active,
+    &.is-active {
+      transform: translateY(0);
+      box-shadow: none;
+      background-color: var(--color-600);
+      color: var(--color-100);
+    }
+
+    &:disabled {
+      color: var(--color-400);
+      border-color: var(--color-400);
+      background-color: var(--color-200);
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    &--primary {
+      // TODO: Add primary button styles
+    }
+
+    &--secondary {
+      background-color: var(--color-bg);
+      border-color: var(--color-accent);
+      font-weight: normal;
+      text-decoration: none;
+    }
+
+    &--icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 1ch;
+
+      span {
+        @media screen {
+          display: none;
+        }
+      }
+
+      svg {
+        fill: currentColor;
+        height: 1em;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@layer elements {
+  hr {
+    margin-block: 2lh;
+    border: none;
+    border-top: solid var(--border-size) currentColor;
+  }
+}

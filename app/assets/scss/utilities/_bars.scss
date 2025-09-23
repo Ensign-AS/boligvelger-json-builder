@@ -1,0 +1,7 @@
+@layer utilities {
+  .c-bottom-bar {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: solid var(--border-size) currentColor;
+  }
+}

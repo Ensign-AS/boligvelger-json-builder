@@ -1,0 +1,7 @@
+@use 'sass:meta';
+
+@layer resets {
+  @include meta.load-css(
+    '../../../../node_modules/normalize.css/normalize.css'
+  );
+}

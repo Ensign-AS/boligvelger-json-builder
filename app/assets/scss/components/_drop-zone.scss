@@ -1,0 +1,36 @@
+@layer components {
+  .c-drop-zone {
+    border: 5px dashed light-dark(var(--color-200), var(--color-600));
+    border-radius: 10px;
+    padding: 2em;
+    text-align: center;
+    cursor: pointer;
+    transition: all ease-out 250ms;
+
+    &.is-active,
+    &:hover {
+      border-color: light-dark(var(--color-600), var(--color-200));
+      background-color: light-dark(var(--color-200), var(--color-600));
+      scale: 1.025;
+    }
+
+    &:focus-within {
+      outline: dotted var(--border-size) currentColor;
+    }
+
+    &__input {
+      display: none;
+    }
+
+    &__icon {
+      font-size: 10em;
+      color: light-dark(var(--color-300), var(--color-500));
+      transition: all ease-out 175ms 75ms;
+    }
+
+    &.is-active &__icon,
+    &:hover &__icon {
+      color: light-dark(var(--color-600), var(--color-300));
+    }
+  }
+}
