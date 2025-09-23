@@ -2,7 +2,7 @@ export interface NormalizedShape {
   id: string | null;
   wpPpropertyId?: number;
   wpSectionId?: number;
-  type: 'section' | 'property';
+  type?: 'section' | 'property';
   shapeType: 'polygon' | 'polyline' | 'path';
   points?: string; // for polygon & polyline
   path?: string; // for path

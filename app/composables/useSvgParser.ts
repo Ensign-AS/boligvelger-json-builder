@@ -1,11 +1,11 @@
-import type { SvgShape } from '@@/types/svgtypes.type';
+import type { NormalizedShape } from '@@/types/normalizedShape.type';
 
 export function useSvgParser() {
-  function parseSvg(svgString: string): SvgShape[] {
+  function parseSvg(svgString: string): NormalizedShape[] {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(svgString, 'image/svg+xml');
 
-    const results: SvgShape[] = [];
+    const results: NormalizedShape[] = [];
 
     // Handle polygons
     xmlDoc.querySelectorAll('polygon').forEach((poly) => {
@@ -16,7 +16,7 @@ export function useSvgParser() {
       results.push({
         id,
         points: poly.getAttribute('points')?.trim() || '',
-        type: 'polygon',
+        shapeType: 'polygon',
       });
     });
 
@@ -29,7 +29,7 @@ export function useSvgParser() {
       results.push({
         id,
         points: polyline.getAttribute('points')?.trim() || '',
-        type: 'polyline',
+        shapeType: 'polyline',
       });
     });
 
@@ -42,7 +42,7 @@ export function useSvgParser() {
       results.push({
         id,
         path: path.getAttribute('d')?.trim() || '',
-        type: 'path',
+        shapeType: 'path',
       });
     });
 

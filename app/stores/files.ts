@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { useFileParser } from '@/composables/useFileParser';
 import { useGetFileExtension } from '@/composables/useGetFileExtension';
+import { useAnglesStore } from '@/stores/angles';
 
 /**
  * Pinia store for managing file uploads and parsing.
@@ -43,7 +44,11 @@ export const useFilesStore = defineStore('files', () => {
       // Parse the file content based on the extension
       const parsedContent = useFileParser(content, extension);
       // TODO: Add to different store.
-      console.log(`Content of ${file.name}:`, parsedContent);
+      if (parsedContent) {
+        parsedContent.forEach((shape) => {
+          useAnglesStore().addAngle(shape);
+        });
+      }
     }
   }
 
