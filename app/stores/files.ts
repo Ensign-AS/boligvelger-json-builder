@@ -43,7 +43,7 @@ export const useFilesStore = defineStore('files', () => {
       const extension = useGetFileExtension(file.name);
       // Parse the file content based on the extension
       const parsedContent = useFileParser(content, extension);
-      // TODO: Add to different store.
+
       if (parsedContent) {
         parsedContent.forEach((shape) => {
           useAnglesStore().addAngle(shape);

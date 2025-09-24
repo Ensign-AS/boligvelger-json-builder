@@ -1,0 +1,18 @@
+.c-new-project {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 1em;
+  align-items: center;
+  &__label {
+    grid-column: 1 / 2;
+  }
+
+  &__input {
+    grid-column: 2 / 3;
+  }
+
+  &__button {
+    grid-column: 1 / 3;
+    width: max-content;
+  }
+}

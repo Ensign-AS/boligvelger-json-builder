@@ -11,5 +11,26 @@
       flex-direction: row;
       flex-wrap: wrap;
     }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+      &__name {
+        font-weight: bold;
+      }
+
+      &__button {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      &__icon {
+        font-size: 1.5em;
+      }
+    }
   }
 }
