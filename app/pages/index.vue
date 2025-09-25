@@ -7,7 +7,7 @@ const anglesStore = useAnglesStore();
 const { angles } = storeToRefs(anglesStore);
 
 const projectsStore = useProjectStore();
-const { project } = storeToRefs(projectsStore);
+const { projects } = storeToRefs(projectsStore);
 const { getWPData } = projectsStore;
 
 const wp = ref({

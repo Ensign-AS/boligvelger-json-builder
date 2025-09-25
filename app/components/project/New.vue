@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+const router = useRouter();
 import { useProjectStore } from '@/stores/projects';
 const projectsStore = useProjectStore();
 const { latestProjectId } = storeToRefs(projectsStore);
@@ -19,6 +21,7 @@ function onSubmit() {
     appUser: projectAppUser.value,
     appPass: projectAppPass.value,
   });
+  router.push('/project');
 }
 </script>
 
@@ -90,8 +93,12 @@ function onSubmit() {
     />
     <button
       type="submit"
-      class="c-btn c-btn--primary c-new-project__button"
+      class="c-btn c-btn--primary c-btn--icon c-new-project__button u-centered"
     >
+      <Icon
+        name="fa7-solid:plus"
+        class="c-btn__icon"
+      />
       Add project
     </button>
   </form>

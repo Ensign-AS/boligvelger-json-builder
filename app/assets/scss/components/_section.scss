@@ -1,5 +1,13 @@
 @layer components {
   .c-section {
     margin-bottom: 2em;
+
+    &--main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 90vh;
+    }
   }
 }

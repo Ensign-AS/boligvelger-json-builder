@@ -1,41 +1,61 @@
 import { defineStore } from 'pinia';
-import type { Project } from '@@/types/project.type';
+import type { Project, ProjectData } from '@@/types/project.type';
 
 export const useProjectStore = defineStore(
   'project',
   () => {
-    const project = ref<Project[]>([]);
+    const projects = ref<Project[]>([]);
+    const fetchingProjects = ref<boolean>(false);
 
     const latestProjectId = computed(() => {
-      return project.value[project.value.length - 1]?.id || 0;
+      return projects.value[projects.value.length - 1]?.id || 0;
     });
 
     function addProject(data: Project) {
-      project.value.push(data);
+      projects.value.push(data);
+    }
+
+    function addProjectData(id: number, data: ProjectData[]) {
+      const projectIndex = projects.value.findIndex(
+        (project) => project.id === id
+      );
+      if (projects.value[projectIndex]) {
+        projects.value[projectIndex].projects = data;
+      }
+    }
+
+    function getProject(id: number) {
+      return projects.value.find((project) => project.id === id);
     }
 
     function removeProject(id: number) {
-      project.value = project.value.filter((project) => project.id !== id);
+      projects.value = projects.value.filter((project) => project.id !== id);
     }
 
     function resetProjects() {
-      project.value = [];
+      projects.value = [];
     }
 
     async function getWPData(project: Project) {
+      fetchingProjects.value = true;
       const url = `${project.url}/wp-json/wp/v2/project?_fields=name,id`;
       try {
-        const response = await $fetch(url);
-
-        console.log(response);
+        const response = await $fetch<ProjectData[]>(url);
+        if (response) {
+          addProjectData(project.id, response);
+        }
+        fetchingProjects.value = false;
       } catch (error) {
         console.log(error);
+        fetchingProjects.value = false;
       }
     }
 
     return {
-      project,
+      projects,
+      fetchingProjects,
       latestProjectId,
+      getProject,
       addProject,
       removeProject,
       resetProjects,
@@ -43,8 +63,6 @@ export const useProjectStore = defineStore(
     };
   },
   {
-    persist: {
-      pick: ['project'],
-    },
+    persist: true,
   }
 );

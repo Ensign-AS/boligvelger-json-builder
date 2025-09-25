@@ -2,6 +2,8 @@
   hr {
     margin-block: 2lh;
     border: none;
-    border-top: solid var(--border-size) currentColor;
+    border-top: solid var(--border-size)
+      light-dark(var(--color-200), var(--color-700));
+    width: 80%;
   }
 }

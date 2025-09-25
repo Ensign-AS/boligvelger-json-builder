@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import type { Project } from '@@/types/project.type';
-import { useProjectStore } from '@/stores/projects';
-const projectsStore = useProjectStore();
-const { removeProject } = projectsStore;
 
 defineProps<{
   project: Project;
@@ -11,15 +8,15 @@ defineProps<{
 
 <template>
   <li class="c-list__item">
-    <span class="c-list__item__name">{{ project.name }}</span>
-    <button
-      class="c-btn c-btn--icon c-list__item__button"
-      @click="removeProject(project.id)"
+    <nuxt-link
+      :to="`/project/${project.id}`"
+      class="c-list__item__name c-btn c-btn--primary c-btn--icon"
     >
       <Icon
-        name="fa7-solid:trash"
-        class="c-list__item__icon"
+        name="fa7-solid:house"
+        class="c-btn__icon"
       />
-    </button>
+      {{ project.name }}
+    </nuxt-link>
   </li>
 </template>

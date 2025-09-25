@@ -59,6 +59,11 @@
       text-decoration: none;
     }
 
+    &--tertiary {
+      background-color: transparent;
+      border-color: transparent;
+    }
+
     &--icon {
       display: inline-flex;
       align-items: center;

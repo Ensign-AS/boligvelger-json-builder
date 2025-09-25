@@ -2,7 +2,7 @@
 
 <template>
   <header class="c-header">
-    <h1>JSON harmonizer</h1>
+    <h2>JSON harmonizer</h2>
     <div class="c-header__right">
       <p>Color mode:</p>
       <select
