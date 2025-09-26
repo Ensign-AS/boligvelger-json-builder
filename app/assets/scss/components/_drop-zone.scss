@@ -5,7 +5,9 @@
     padding: 2em;
     text-align: center;
     cursor: pointer;
-    transition: all ease-out 250ms;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all ease-out 250ms;
+    }
 
     &.is-active,
     &:hover {
@@ -25,7 +27,9 @@
     &__icon {
       font-size: 10em;
       color: light-dark(var(--color-300), var(--color-500));
-      transition: all ease-out 175ms 75ms;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: all ease-out 175ms 75ms;
+      }
     }
 
     &.is-active &__icon,

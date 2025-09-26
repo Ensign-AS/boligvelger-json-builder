@@ -6,7 +6,9 @@
 
     &__confirmation {
       opacity: 0;
-      transition: opacity 125ms ease-out;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: opacity 125ms ease-out;
+      }
 
       &.is-active {
         opacity: 1;
