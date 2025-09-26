@@ -2,7 +2,7 @@
 import { useRoute } from 'vue-router';
 import { useProjectStore } from '@/stores/projects';
 const projectsStore = useProjectStore();
-const { projects, fetchingProjects } = storeToRefs(projectsStore);
+const { projects, fetchingProjects, WPProjectId } = storeToRefs(projectsStore);
 const { getWPData } = projectsStore;
 
 const route = useRoute();
@@ -43,9 +43,35 @@ const project = computed(() => {
         <li
           v-for="(projectData, index) in project.projects"
           :key="index"
-          class="c-btn c-btn--secondary"
         >
-          {{ projectData.name }}
+          <label
+            :for="`project-${projectData.id}`"
+            class="c-btn c-btn--icon"
+            :class="{
+              'c-btn--primary': projectData.id === WPProjectId,
+              'c-btn--secondary': projectData.id !== WPProjectId,
+            }"
+          >
+            <input
+              type="radio"
+              :id="`project-${projectData.id}`"
+              name="project"
+              :value="projectData.id"
+              v-model="WPProjectId"
+              class="c-btn__input c-btn__input--radio"
+            />
+            <Icon
+              name="fa7-regular:circle-dot"
+              v-if="projectData.id === WPProjectId"
+              class="c-btn__icon"
+            />
+            <Icon
+              name="fa7-regular:circle"
+              v-else
+              class="c-btn__icon"
+            />
+            {{ projectData.name }}
+          </label>
         </li>
       </ul>
       <p>

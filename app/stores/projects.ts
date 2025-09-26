@@ -7,6 +7,8 @@ export const useProjectStore = defineStore(
     const projects = ref<Project[]>([]);
     const fetchingProjects = ref<boolean>(false);
 
+    const WPProjectId = ref<number>();
+
     const latestProjectId = computed(() => {
       return projects.value[projects.value.length - 1]?.id || 0;
     });
@@ -54,6 +56,7 @@ export const useProjectStore = defineStore(
     return {
       projects,
       fetchingProjects,
+      WPProjectId,
       latestProjectId,
       getProject,
       addProject,
