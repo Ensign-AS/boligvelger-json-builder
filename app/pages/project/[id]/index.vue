@@ -60,14 +60,18 @@ const project = computed(() => {
           }"
         >
           <Icon
+            name="fa7-solid:sync"
+            class="c-btn__icon a-rotate"
+            v-if="fetchingProjects"
+          />
+          <Icon
             name="fa7-solid:download"
             class="c-btn__icon"
-            v-if="!project.projects || project.projects?.length === 0"
+            v-else-if="!project.projects || project.projects?.length === 0"
           />
           <Icon
             name="fa7-solid:sync"
             class="c-btn__icon"
-            :class="{ 'a-rotate': fetchingProjects }"
             v-else
           />
           <template v-if="!project.projects || project.projects?.length === 0">
