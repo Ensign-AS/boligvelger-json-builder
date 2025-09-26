@@ -9,5 +9,13 @@
       align-items: center;
       min-height: 90vh;
     }
+
+    &--gap {
+      gap: 1em;
+    }
+
+    &--gap-large {
+      gap: 2em;
+    }
   }
 }
