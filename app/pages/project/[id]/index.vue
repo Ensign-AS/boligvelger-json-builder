@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { useProjectStore } from '@/stores/projects';
+import { usePropertiesStore } from '@/stores/properties';
 const projectsStore = useProjectStore();
 const { projects, fetchingProjects, WPProjectId } = storeToRefs(projectsStore);
 const { getWPData } = projectsStore;
+
+const propertiesStore = usePropertiesStore();
+const { fetchingProperties, properties } = storeToRefs(propertiesStore);
+const { getProperties } = propertiesStore;
+
+const sectionsStore = useSectionsStore();
+const { fetchingSections, sections } = storeToRefs(sectionsStore);
+const { getSections } = sectionsStore;
 
 const route = useRoute();
 const projectId = Number(route.params.id);
@@ -74,7 +83,7 @@ const project = computed(() => {
           </label>
         </li>
       </ul>
-      <p>
+      <p class="c-horizontal-list">
         <button
           type="button"
           @click="getWPData(project)"
@@ -104,6 +113,51 @@ const project = computed(() => {
             Get project data
           </template>
           <template v-else> Update project data </template>
+        </button>
+        <button
+          v-if="WPProjectId"
+          type="button"
+          class="c-btn c-btn--icon c-btn--primary"
+          @click="getProperties(project, WPProjectId)"
+        >
+          <Icon
+            name="fa7-solid:sync"
+            class="c-btn__icon a-rotate"
+            v-if="fetchingProperties"
+          />
+          <Icon
+            name="fa7-solid:sync"
+            class="c-btn__icon"
+            v-else-if="properties.length > 0"
+          />
+          <Icon
+            name="fa7-solid:house"
+            class="c-btn__icon"
+            v-else
+          />
+          Get properties
+        </button>
+        <button
+          type="button"
+          class="c-btn c-btn--primary c-btn--icon"
+          @click="getSections(project)"
+        >
+          <Icon
+            name="fa7-solid:sync"
+            class="c-btn__icon a-rotate"
+            v-if="fetchingSections"
+          />
+          <Icon
+            name="fa7-solid:sync"
+            class="c-btn__icon"
+            v-else-if="sections.length > 0"
+          />
+          <Icon
+            name="fa7-solid:building"
+            class="c-btn__icon"
+            v-else
+          />
+          Get Sections
         </button>
       </p>
     </div>
