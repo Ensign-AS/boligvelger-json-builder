@@ -49,7 +49,9 @@
     }
 
     &--primary {
-      // TODO: Add primary button styles
+      border: solid var(--color-main) var(--border-size);
+      color: var(--color-main);
+      background-color: var(--color-accent);
     }
 
     &--secondary {
