@@ -1,6 +1,6 @@
 export interface NormalizedShape {
   id: string | null;
-  wpPpropertyId?: number;
+  wpPropertyId?: number;
   wpSectionId?: number;
   type?: 'section' | 'property';
   shapeType: 'polygon' | 'polyline' | 'path';

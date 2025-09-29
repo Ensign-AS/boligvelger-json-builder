@@ -10,6 +10,13 @@ export const usePropertiesStore = defineStore('properties', () => {
     properties.value.push(property);
   }
 
+  function updateProperty(property: Property) {
+    const index = properties.value.findIndex((p) => p.id === property.id);
+    if (index > -1) {
+      properties.value[index] = property;
+    }
+  }
+
   async function getProperties(project: Project, WPProjectId: number) {
     fetchingProperties.value = true;
     resetProperties();
@@ -39,6 +46,7 @@ export const usePropertiesStore = defineStore('properties', () => {
     properties,
     fetchingProperties,
     addProperty,
+    updateProperty,
     getProperties,
     resetProperties,
   };

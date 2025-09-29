@@ -1,3 +1,5 @@
+import type { NormalizedShape } from '@@/types/normalizedShape.type';
+
 import { defineStore } from 'pinia';
 import { useFileParser } from '@/composables/useFileParser';
 import { useGetFileExtension } from '@/composables/useGetFileExtension';
@@ -45,9 +47,11 @@ export const useFilesStore = defineStore('files', () => {
       const parsedContent = useFileParser(content, extension);
 
       if (parsedContent) {
+        const shapes: NormalizedShape[] = [];
         parsedContent.forEach((shape) => {
-          useAnglesStore().addAngle(shape);
+          shapes.push(shape);
         });
+        useAnglesStore().addAngle(shapes);
       }
     }
   }
