@@ -5,10 +5,11 @@ const { angles, uniqueShapeIds } = storeToRefs(anglesStore);
 </script>
 
 <template>
-  <div class="test">
+  <div class="c-section c-section--main">
     <h1>Angles</h1>
-    <div v-for="id in uniqueShapeIds">
-      <test-combiner :shape-id="id" />
-    </div>
+    <combine-shape-and-wordpress
+      :shape-id="id"
+      v-for="id in uniqueShapeIds"
+    />
   </div>
 </template>

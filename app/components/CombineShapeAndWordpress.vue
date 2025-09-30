@@ -11,7 +11,7 @@ const anglesStore = useAnglesStore();
 const { properties } = storeToRefs(propertiesStore);
 const { sections } = storeToRefs(sectionsStore);
 
-const { addPropertyId } = anglesStore;
+const { addPropertyId, addSectionId } = anglesStore;
 
 defineProps<{
   shapeId: string;
@@ -23,7 +23,7 @@ const selectedSectionId = ref<number>(0);
 </script>
 
 <template>
-  <div>
+  <div class="c-combiner">
     <h3>{{ shapeId }}</h3>
     <div class="c-horizontal-list">
       <label
@@ -31,7 +31,7 @@ const selectedSectionId = ref<number>(0);
         class="c-btn c-btn--icon"
         :class="{
           'c-btn--primary': selectedType === 'property',
-          'c-btn--secondary': selectedType !== 'property',
+          'c-btn--tertiary': selectedType !== 'property',
         }"
       >
         <Icon
@@ -58,7 +58,7 @@ const selectedSectionId = ref<number>(0);
         class="c-btn c-btn--icon"
         :class="{
           'c-btn--primary': selectedType === 'section',
-          'c-btn--secondary': selectedType !== 'section',
+          'c-btn--tertiary': selectedType !== 'section',
         }"
       >
         <Icon
@@ -85,7 +85,7 @@ const selectedSectionId = ref<number>(0);
       v-if="selectedType === 'property'"
       class="c-select"
       v-model="selectedPropertyId"
-      v-on="addPropertyId(shapeId as string, selectedPropertyId)"
+      @input="addPropertyId(shapeId as string, selectedPropertyId)"
     >
       <option value="0">Select property</option>
       <option
@@ -100,6 +100,7 @@ const selectedSectionId = ref<number>(0);
       v-else-if="selectedType === 'section'"
       class="c-select"
       v-model="selectedSectionId"
+      @input="addSectionId(shapeId as string, selectedSectionId)"
     >
       <option value="0">Select section</option>
       <option
@@ -110,6 +111,5 @@ const selectedSectionId = ref<number>(0);
         {{ section.name }}
       </option>
     </select>
-    <hr />
   </div>
 </template>

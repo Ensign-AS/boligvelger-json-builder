@@ -26,10 +26,14 @@ export const useAnglesStore = defineStore('angles', () => {
     return Array.from(ids);
   });
 
-  function addAngle(shapes: NormalizedShape[]) {
+  function addAngle(shapes: NormalizedShape[], angleNumber?: number | null) {
     previousAngle.value += 1;
+    if (angleNumber) {
+      previousAngle.value = angleNumber;
+    }
+    let number = previousAngle.value;
     const angle: NormalizedAngle = {
-      angle: previousAngle.value,
+      angle: number,
       shapes,
     };
     angles.value.push(angle);

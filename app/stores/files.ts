@@ -45,13 +45,15 @@ export const useFilesStore = defineStore('files', () => {
       const extension = useGetFileExtension(file.name);
       // Parse the file content based on the extension
       const parsedContent = useFileParser(content, extension);
+      // Get the angle number from the filename
+      const angleNumber = extractNumberFromFilename(file.name);
 
       if (parsedContent) {
         const shapes: NormalizedShape[] = [];
         parsedContent.forEach((shape) => {
           shapes.push(shape);
         });
-        useAnglesStore().addAngle(shapes);
+        useAnglesStore().addAngle(shapes, angleNumber);
       }
     }
   }
