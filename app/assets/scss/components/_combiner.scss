@@ -1,8 +1,27 @@
 .c-combiner {
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content max-content;
   gap: 1em;
   align-items: center;
   margin-bottom: 1em;
   padding-bottom: 1em;
   border-bottom: solid var(--color-main) var(--border-size);
+
+  &__title {
+    grid-column: 1 / 2;
+  }
+
+  &__buttons {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  &__selects {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
 }

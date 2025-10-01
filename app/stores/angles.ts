@@ -71,6 +71,19 @@ export const useAnglesStore = defineStore('angles', () => {
     });
   }
 
+  function copyToClipboard() {
+    // Convert the angles array to a JSON string
+    const anglesString = JSON.stringify(angles.value); // The `2` adds indentation for readability
+    navigator.clipboard
+      .writeText(anglesString)
+      .then(() => {
+        console.log('Copied to clipboard!');
+      })
+      .catch((error) => {
+        console.error('Failed to copy:', error);
+      });
+  }
+
   function resetAngles() {
     angles.value = [];
   }
@@ -82,6 +95,7 @@ export const useAnglesStore = defineStore('angles', () => {
     addAngle,
     addPropertyId,
     addSectionId,
+    copyToClipboard,
     resetAngles,
   };
 });

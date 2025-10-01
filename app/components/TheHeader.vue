@@ -3,6 +3,7 @@
 <template>
   <header class="c-header">
     <h2>JSON harmonizer</h2>
+    <the-nav />
     <div class="c-header__right">
       <p>Color mode:</p>
       <select

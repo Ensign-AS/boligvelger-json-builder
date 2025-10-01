@@ -48,10 +48,9 @@
       }
     }
 
-    &--primary {
-      border: solid var(--color-main) var(--border-size);
-      color: var(--color-main);
-      background-color: var(--color-accent);
+    &--tertiary {
+      background-color: transparent;
+      border-color: transparent;
     }
 
     &--secondary {
@@ -61,9 +60,10 @@
       text-decoration: none;
     }
 
-    &--tertiary {
-      background-color: transparent;
-      border-color: transparent;
+    &--primary {
+      border: solid var(--color-main) var(--border-size);
+      color: var(--color-main);
+      background-color: var(--color-accent);
     }
 
     &--icon {

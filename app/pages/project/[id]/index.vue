@@ -196,6 +196,13 @@ const project = computed(() => {
         />
         Open website in new tab
       </a>
+      <nuxt-link
+        to="/combine"
+        class="c-btn c-btn--primary c-btn--icon"
+      >
+        Continue
+        <Icon name="fa7-solid:arrow-right" />
+      </nuxt-link>
     </div>
   </section>
   <project-missing v-else />

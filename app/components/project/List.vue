@@ -5,7 +5,7 @@ const { projects } = storeToRefs(projectsStore);
 </script>
 
 <template>
-  <ul class="c-list">
+  <ul class="c-list c-list--horizontal">
     <project-item
       v-for="(project, index) in projects"
       :key="index"

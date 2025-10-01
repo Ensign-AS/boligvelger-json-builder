@@ -24,8 +24,8 @@ const selectedSectionId = ref<number>(0);
 
 <template>
   <div class="c-combiner">
-    <h3>{{ shapeId }}</h3>
-    <div class="c-horizontal-list">
+    <h3 c-combiner__title>{{ shapeId }}</h3>
+    <div class="c-combiner__buttons">
       <label
         :for="`property-${shapeId}`"
         class="c-btn c-btn--icon"
@@ -81,35 +81,40 @@ const selectedSectionId = ref<number>(0);
         />
       </label>
     </div>
-    <select
-      v-if="selectedType === 'property'"
-      class="c-select"
-      v-model="selectedPropertyId"
-      @input="addPropertyId(shapeId as string, selectedPropertyId)"
+    <div
+      class="c-combiner__selects"
+      v-if="selectedType"
     >
-      <option value="0">Select property</option>
-      <option
-        v-for="property in properties"
-        :key="property.id"
-        :value="property.id"
+      <select
+        v-if="selectedType === 'property'"
+        class="c-select"
+        v-model="selectedPropertyId"
+        @change="addPropertyId(shapeId as string, selectedPropertyId)"
       >
-        {{ property.name }}
-      </option>
-    </select>
-    <select
-      v-else-if="selectedType === 'section'"
-      class="c-select"
-      v-model="selectedSectionId"
-      @input="addSectionId(shapeId as string, selectedSectionId)"
-    >
-      <option value="0">Select section</option>
-      <option
-        v-for="section in sections"
-        :key="section.id"
-        :value="section.id"
+        <option value="0">Select property</option>
+        <option
+          v-for="property in properties"
+          :key="property.id"
+          :value="property.id"
+        >
+          {{ property.name }}
+        </option>
+      </select>
+      <select
+        v-else-if="selectedType === 'section'"
+        class="c-select"
+        v-model="selectedSectionId"
+        @change="addSectionId(shapeId as string, selectedSectionId)"
       >
-        {{ section.name }}
-      </option>
-    </select>
+        <option value="0">Select section</option>
+        <option
+          v-for="section in sections"
+          :key="section.id"
+          :value="section.id"
+        >
+          {{ section.name }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
