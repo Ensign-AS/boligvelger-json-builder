@@ -35,5 +35,12 @@
     >
       Output
     </nuxt-link>
+    <nuxt-link
+      to="/upload"
+      class="c-btn c-btn--tertiary"
+      exact-active-class="c-btn--primary"
+    >
+      Upload
+    </nuxt-link>
   </nav>
 </template>
