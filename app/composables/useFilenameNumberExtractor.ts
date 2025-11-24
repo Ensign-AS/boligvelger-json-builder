@@ -10,7 +10,6 @@ export function extractNumberFromFilename(
 ): number | null {
   if (!filename) return null;
 
-  // Match the last occurrence of one or more digits before the file extension
   const match = filename.match(/-(\d+)\.(svg|json|csv)$/i);
   if (match && match[1]) {
     return parseInt(match[1], 10);
