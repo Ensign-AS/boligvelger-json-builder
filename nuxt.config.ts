@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/icon',
+    '@vite-pwa/nuxt',
   ],
   css: [
     // SCSS file in the project
