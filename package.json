@@ -1,5 +1,9 @@
 {
-  "name": "nuxt-app",
+  "name": "ensign-json-harmoniser",
+  "version": "1.0.0",
+  "description": "JSON-harmoniser for Ensign's boligvelger",
+  "author": "Kristian Kalvå",
+  "license": "MIT",
   "type": "module",
   "private": true,
   "scripts": {
